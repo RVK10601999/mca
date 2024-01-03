@@ -1,7 +1,7 @@
 ## This is a Spring Boot Application using Spring JPA
 After running this project use the below link to access the API endpoint.
 
-1.  [Without Pagination and sorting](http://localhost:8080/myapp/)
+1.  [Without Pagination and sorting](http://localhost:8080/springJPA/)
 2.  [With Pagination and sorting](http://localhost:8080/springJPA/students?pageNumber=0&pageSize=5&sortBy=id&sortOrder=asc)
 
 
