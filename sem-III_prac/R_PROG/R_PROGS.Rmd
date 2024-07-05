@@ -1,0 +1,78 @@
+#1. Calculate the number of occurrences of a character in each row of R DataFrame.
+library ("stringr")
+data_frame <- data.frame(
+col1 = c(1:5), col2 = c("Geeks","for","geeks","CSE","portal"))
+print(data_frame)
+ch <- "e"
+count <- str_count(data_frame$col2, ch)
+print ("Count of e :")
+print (count)
+#2. Find row and column index of maximum and minimum value in a matrix in R.
+mat <- matrix(c(1, 2, NA, 4, 5, 6, NA, 8, 9), nrow=3, byrow=TRUE)
+max_value <- max(mat, na.rm = TRUE)
+max_indices <- which(mat == max_value, arr.ind = TRUE)
+min_value <- min(mat, na.rm = TRUE)
+min_indices <- which(mat == min_value, arr.ind = TRUE)
+print(max_value)
+print(max_indices)
+print(min_value)
+print(min_indices)
+#3. Multiply a matrix by its transpose while ignoring missing values in R.
+mat <- matrix(c(1, 2, NA, 4, 5, 6, NA, 8, 9), nrow=3, byrow=TRUE)
+mat[is.na(mat)] <- 0
+result <- mat %*% t(mat)
+print(result)
+#4. Remove rows with NA in one column of R DataFrame.
+df <- data.frame(
+  col1 = c(1, 2, NA, 4),
+  col2 = c("a", "b", "c", "d"),
+  stringsAsFactors = FALSE
+)
+print(df)
+df_clean <- df[!is.na(df$col1), ]
+print(df_clean)
+#5. How to find common rows and columns between two dataframe in R?
+df1 <- data.frame(
+  col1 = c(1, 2, 3),
+  col2 = c("a", "b", "c"),
+  col3 = c(4,5,6),
+  stringsAsFactors = FALSE
+)
+df2 <- data.frame(
+  col1 = c(3, 1),
+  col2 = c("b", "a"),
+  stringsAsFactors = FALSE
+)
+common_rows <- merge(df1, df2)
+common_columns <- intersect(names(df1), names(df2))
+print(common_rows)
+print(common_columns)
+#6. Adding Colors to Charts in R Programming.
+x <- 1:10
+y <- rnorm(10)
+plot(x, y, col = "blue", pch = 19, main = "Scatter Plot with Colors")
+#7. Create a Stacked Dot Plot in R.
+library(ggplot2)
+data <- data.frame(
+  category = rep(letters[1:3], each = 10),
+  value = rnorm(300)
+)
+ggplot(data, aes(x = category, y = value))+
+geom_dotplot(binaxis = 'y', stackdir = 'centerwhole', dotsize = .5)+
+theme_minimal()
+#8. Plot Shaded Area between vertical lines in R.
+x <- 1:100
+y <- rnorm(100)
+plot(x, y, type = "l",lwd=2)
+polygon(c(20, 20, 80, 80), c(-2, 2, 2, -2), col = "grey80", border = NA)
+abline(v = c(20, 80), col = "red", lty = 2,lwd=2)
+#9. Add Mean and Median to Histogram in.
+data <- rnorm(100)
+hist(data,col="lightblue",main="Histogram",xlab="Values")
+mn = mean(data)
+md = median(data)
+abline(v = mn, col = "red", lwd = 2, lty = 2)
+abline(v = md, col = "blue", lwd = 2, lty = 2)
+legend("topright", legend = c("Mean", "Median"), col = c("red", "blue"), lty = 2, lwd = 2)
+#10. Create Scatter plot from CSV in R.
+
